@@ -1,6 +1,11 @@
-import { AppBar, Toolbar, Typography } from "@mui/material";
+import { AppBar, FormControlLabel, FormGroup, Switch, Toolbar, Typography } from "@mui/material";
 
-export default function Header() {
+interface Props {
+    darkMode: boolean;
+    handleThemeChange: () => void;
+}
+
+export default function Header({darkMode, handleThemeChange}: Props) {
     return (
         <AppBar position='static' sx={{mb: 4}}>
             <Toolbar>
@@ -8,6 +13,7 @@ export default function Header() {
                     RE-STORE
                 </Typography>
             </Toolbar>
+            <Switch checked={darkMode} onChange={handleThemeChange} color="secondary" />
         </AppBar>
     )
 }
